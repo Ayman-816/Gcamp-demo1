@@ -1,1 +1,1 @@
-print("Hamada !")
+print("Hamda wazzup!")
