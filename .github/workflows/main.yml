@@ -7,8 +7,9 @@ jobs:
       - uses: actions/checkout@v6.0.2
       - name: Bulding docker file
         run: |
+          echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u amyo123 --password-stdin
           docker build -t amyo123/python:v1 .
-          docker push amyo123/python
+          docker push amyo123/python:v1
   test:
     runs-on: ubuntu-latest
     steps:
