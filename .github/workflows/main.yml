@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6.0.2
       - name: Bulding docker file
-        run: docker build -t FirstTry:v1 . 
+        run: docker build -t firsttry:v1 . 
   test:
     runs-on: ubuntu-latest
     steps:
@@ -18,4 +18,4 @@ jobs:
     steps:
       - uses: actions/checkout@v6.0.2
       - name: Deploy docker file
-        run: docker run -p 8080:80 FirstTry:v1
+        run: docker run -p 8080:80 firsttry:v1
