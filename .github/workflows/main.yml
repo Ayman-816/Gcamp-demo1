@@ -6,16 +6,18 @@ jobs:
     steps:
       - uses: actions/checkout@v6.0.2
       - name: Bulding docker file
-        run: docker build -t firsttry:v1 . 
+        run: |
+          docker build -t amyo123/python:v1 .
+          docker push amyo123/python
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6.0.2
       - name: Testing docker file
-        run: echo "Testing in progress...."
+        run: echo  "Testing in progress...."
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6.0.2
       - name: Deploy docker file
-        run: docker run -p 8080:80 firsttry:v1
+        run: docker run -p 8080:80 amyo123/python:v1
