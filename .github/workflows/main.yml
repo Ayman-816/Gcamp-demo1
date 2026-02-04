@@ -1,0 +1,21 @@
+name: CI pipeline
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Bulding docker file
+        run: docker build -t FirstTry:v1 . 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Testing docker file
+        run: echo "Testing in progress...."
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Deploy docker file
+        run: docker run -p 8080:80 FirstTry:v1
